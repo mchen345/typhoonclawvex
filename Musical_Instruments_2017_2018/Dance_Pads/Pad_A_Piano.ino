@@ -11,6 +11,8 @@ int ride = 6;
 int snare = 7;
 int lTom = 8;
 int crash = 9;
+int plus= 10; 
+int minus = 16;
 
 // Set up default variables for input status
 int valBass = 0;
@@ -21,7 +23,8 @@ int valRide = 0;
 int valSnare = 0;
 int vallTom = 0;
 int valCrash = 0;
-
+int valPlus = 0;
+int valMinus = 0;
 // variable to store the value read
  
 void setup()
@@ -35,6 +38,8 @@ void setup()
   pinMode(snare, INPUT);
   pinMode(lTom, INPUT);
   pinMode(crash, INPUT);
+  pinMode(plus, INPUT); 
+  pinMode(minus, INPUT);
  
   //  setup serial
 }
@@ -49,6 +54,8 @@ void loop()
   valhHat = digitalRead(snare);// read the input pin
   valSnare = digitalRead(lTom);// read the input pin
   valhTom = digitalRead(crash);// read the input pin
+   valMinus = digitalRead(minus);// read the input pin
+  valPlus = digitalRead(plus);
 
   if (valBass == 1)//bt5
   {
@@ -112,6 +119,22 @@ void loop()
    else{
     Keyboard.release('s');
   }
+    if (valPlus == 1)
+  {
+    Keyboard.press('x');
+  }
+  else{
+    Keyboard.release('x');
+  }
+
+    if (valMinus == 1)
+  {
+    Keyboard.press('z');
+    }
+  else{
+    Keyboard.release('z');
+  }
+
   
   delay(10);
 
